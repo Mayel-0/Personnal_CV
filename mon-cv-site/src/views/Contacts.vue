@@ -1,12 +1,17 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const ShowSVG = ref(false)
+</script>
 <template>
   <div class="Contacts">
     <h1>Contacts</h1>
     <div class="ContactAll">
       <img class="photo" src="/assets/IMG_2227.png"/>
       <div class="Links">
-        <a class="Link Linkdin" href="https://www.linkedin.com/in/llado-mael-54008a384/">
+        <a class="Link Linkdin" href="https://www.linkedin.com/in/llado-mael-54008a384/" @mouseenter="ShowSVG = true" @mouseleave="ShowSVG = false">
           Linkedin
-          <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="iconLogo" width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.32003 2.67041e-05C4.20408 -0.00350952 5.05333 0.344289 5.68095 0.966909C6.30858 1.58953 6.66316 2.43597 6.66669 3.32003C6.67023 4.20408 6.32243 5.05333 5.69981 5.68095C5.07719 6.30858 4.23075 6.66316 3.34669 6.66669C2.46264 6.67023 1.61339 6.32243 0.985765 5.69981C0.358144 5.07719 0.00356292 4.23075 2.67041e-05 3.34669C-0.00350952 2.46264 0.344289 1.61339 0.966909 0.985765C1.58953 0.358144 2.43597 0.00356292 3.32003 2.67041e-05ZM0.680027 7.33336H6.01336V23.3334H0.680027V7.33336ZM8.68003 7.33336H13.7467V9.60003H13.8134C14.52 8.26669 16.2667 6.86669 18.88 6.86669C24.2934 6.86669 25.28 10.4267 25.28 15V23.3334H19.9467V16.1334C19.9467 14.4 19.92 12.1334 17.4134 12.1334C14.88 12.1334 14.48 14 14.48 16V23.3334H8.68003V7.33336Z"/>
           </svg>
         </a>
@@ -29,7 +34,7 @@
           </svg>
         </a>
         <div class="text">
-          Toujours ouvert à discuter, que ce soit pour des projets professionnels, personnels ou pour ton travail 👋 !
+          Toujours ouvert à discuter, que ce soit pour des projets professionnels, personnels ou pour des offres d’emploi 👋 !
         </div>
       </div>
     </div>
@@ -68,7 +73,6 @@
       align-items: center;
       height: 100%;
       width: 100%;
-
       a {
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
@@ -97,10 +101,11 @@
         margin-bottom: 10px ;
 
         &:hover {
-          background-color: white;
+          background-color: #F9F6F1;
 
           svg {
             fill: #3C3C3C;
+            margin-left: 0;
           }
         }
         svg {
@@ -108,9 +113,10 @@
           height:26px;
           margin: 15px;
           fill: #A7895E;
-          transition: fill 0.3s ease;
+          transition: all 0.4s ease;
           cursor: pointer;
-
+          margin-left: -40px;
+          margin-right: 15px;
         }
       }
     }

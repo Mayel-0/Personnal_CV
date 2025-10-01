@@ -1,17 +1,19 @@
 <template>
   <div class="Header">
-    <RouterLink to="/CV" class="CV" :class="{ IsActive: $route.path === '/CV' }">
-      <a>Mon CV</a>
-    </RouterLink>
-    <RouterLink to="/" class="Home" :class="{ IsActive: $route.path === '/' }">
-      <a>Présentation</a>
-    </RouterLink>
-    <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
-      <a>Mes Projets</a>
-    </RouterLink>
-    <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">
-      <a>Contacts</a>
-    </RouterLink>
+    <div class="HeaderTop">
+      <RouterLink to="/CV" class="CV" :class="{ IsActive: $route.path === '/CV' }">
+        <a>Mon CV</a>
+      </RouterLink>
+      <RouterLink to="/" class="Home" :class="{ IsActive: $route.path === '/' }">
+        <a>Présentation</a>
+      </RouterLink>
+      <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
+        <a>Mes Projets</a>
+      </RouterLink>
+      <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">
+        <a>Contacts</a>
+      </RouterLink>
+    </div>
   </div>
 </template>
 
@@ -25,7 +27,16 @@
   height: 85px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  /* position: fixed; */
+
+  .HeaderTop{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*position: fixed;
+    top: 0;*/
+  }
 }
 
 .Projet {
