@@ -165,7 +165,7 @@ onMounted(() => {
                 <div class="ButtonStatue ButtonStatuefalse">Privé</div>
               </div>
             </div>
-            <a href="https://github.com/Mayel-0/projet-chef-doeuvre-2024" target="_blank" rel="noopener noreferrer" class="ButtonProjet">Voir le Projet sur Github</a>
+            <a href="https://github.com/Mayel-0/CTF-Entrainement-et-Realisation" target="_blank" rel="noopener noreferrer" class="ButtonProjet">Voir le Projet sur Github</a>
           </div>
         </div>
       </div>
