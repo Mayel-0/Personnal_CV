@@ -9,6 +9,9 @@
     <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
       <a>Mes Projets</a>
     </RouterLink>
+    <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">
+      <a>Contacts</a>
+    </RouterLink>
   </div>
 </template>
 
@@ -80,7 +83,6 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
-  width: 6%;
 
   a {
   font-family: 'Roboto', sans-serif;
@@ -123,7 +125,6 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
-  width: 6%;
   a {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -148,6 +149,48 @@
   padding: 12px 16px 12px 16px;
   transition: padding 0.4s ease;
   transition: font-size 0.4s ease;
+  a {
+    color: #A7895E;
+  }
+}
+
+.Contact {
+  background-color: #C5A880;
+  color: white;
+  border: 1px lightgrey none;
+  border-radius: 15px;
+  padding: 8px 12px 8px 12px;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  color: #3C3C3C;
+  transition: color 0.7s ease;
+  }
+}
+
+.Contact:hover {
+  font-size: 16px;
+  padding: 12px 16px 12px 16px;
+  transition: padding 0.4s ease;
+  transition: font-size 0.4s ease;
+  a {
+    color: #A7895E;
+  }
+}
+
+.Contact.IsActive {
+  font-size: 16px;
+  padding: 12px 16px 12px 16px;
+  transition: padding 0.4s ease;
+  transition: font-size 0.5s ease;
   a {
     color: #A7895E;
   }
