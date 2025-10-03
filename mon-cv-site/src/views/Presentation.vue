@@ -23,7 +23,6 @@ onMounted(() => {
     <transition name="fade">
       <h1 v-if="showTitle">Hello world !</h1>
     </transition>
-
     <transition name="fade">
       <p v-if="showText" class="ParagraphePrésentation">
         Bonjour je suis, Maël LLADO
@@ -33,7 +32,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Animation fade-in */
 .fade-enter-active {
   transition: all 1s ease;
 }
@@ -48,5 +46,8 @@ onMounted(() => {
 
 p {
   color: #3C3C3C;
+}
+article {
+  padding-bottom: 1000px;
 }
 </style>

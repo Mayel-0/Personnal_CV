@@ -1,20 +1,49 @@
 <script setup>
-import {ref, onMounted} from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
 
-const ShowTitle = ref(false)
-const ShowParagarphe = ref(false)
+const ShowTitle = ref(false);
+const ShowParagarphe = ref(false);
+const activeSection = ref(null);
+
+let observer; // on le déclare ici pour y accéder dans onUnmounted
 
 onMounted(() => {
+  // Animations titres
   setTimeout(() => {
-    ShowTitle.value = true
-  }, 500)
+    ShowTitle.value = true;
+  }, 500);
 
   setTimeout(() => {
-    ShowParagarphe.value = true
-  }, 1000)
-})
+    ShowParagarphe.value = true;
+  }, 1000);
 
+  // IntersectionObserver amélioré
+  const sections = document.querySelectorAll(".Project");
+  observer = new IntersectionObserver(
+    (entries) => {
+      let maxRatio = 0;
+      let mostVisibleId = null;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          mostVisibleId = entry.target.id;
+        }
+      });
+      if (mostVisibleId) {
+        activeSection.value = mostVisibleId;
+        console.log("Active section =>", activeSection.value);
+      }
+    },
+    { threshold: [0, 0.3, 0.5, 0.7, 1] }
+  );
+  sections.forEach((section) => observer.observe(section));
+});
+
+onUnmounted(() => {
+  if (observer) observer.disconnect();
+});
 </script>
+
 <template>
   <div class="ProjectPage">
     <div class="IntroProj">
@@ -34,7 +63,7 @@ onMounted(() => {
     </div>
     <transition name="fade">
       <div v-if="ShowParagarphe" class="ProjectListes">
-        <div class="Project">
+        <div id="project1" class="Project">
           <div class="partTop">
             <img class="PhotoProject" src="/assets/assets-task_01k5e52ncte16sfyg8tzym9m9y-1758190521_img_0.webp"/>
             <div class="textContenue">
@@ -50,9 +79,9 @@ onMounted(() => {
                 Eldoria est un jeu d'aventure textuel où vous incarnez un explorateur qui découvre le village d'Ynovia. Rencontrez Emeryn, le guide du village, et percez les mystères qui entourent ce lieu magique. Découvrez un portail vers un autre monde, mais attention aux monstres qui rôdent... et au redoutable boss Maximor !
                 Ce jeu est en ligne de commande dans le Terminal (CLI), mais intègre une particularité unique : une map interactive pour un jeu plus agréable à jouer.
               </p>
-              <p1>
+              <p class="p1">
                 Voici un extrait du Read.me
-              </p1>
+              </p>
               <div class="InformationProject">
                 <div class="Card">
                   <h3>Langue</h3>
@@ -87,7 +116,7 @@ onMounted(() => {
             <a href="https://github.com/StarWeizz/projet-red_Eldoria" target="_blank" rel="noopener noreferrer" class="ButtonProjet">Voir le Projet sur Github</a>
           </div>
         </div>
-        <div class="Project">
+        <div id="project2" class="Project">
           <div class="partTop">
             <img class="PhotoProject" src="/assets/assets_task_01k6gwm67pfdjb350mnhqwt4fv_1759356168_img_1.webp"/>
             <div class="textContenue">
@@ -102,9 +131,9 @@ onMounted(() => {
               <p>
                 Notre projet porte sur la reconnaissance faciale. Nous codons en Python 3 sur Visual Studio Code. Notre projet consiste à reconnaître les visages présents sur une photo ou sur une vidéo, puis à les comparer à une base de données comportant plusieurs visages dans plusieurs dossiers différents. L'objectif est de déterminer si la personne est connue de la base de données ou si elle est inconnue. Si le visage est reconnu, le logiciel doit simplement afficher le nom de cette personne sur l'image. Ce logiciel est intéressant car il peut être utilisé dans un dispositif de sécurité, dans diverses situations ou comme un "portier" dans un lieu où l'on pourrait installer ce dispositif devant une porte ou un portail. S'il reconnaît la personne, la porte ou le portail se déverrouille, et inversement. Cela constitue l'aspect utile de notre projet, qui répond à de vrais problèmes et besoins en matière de sécurité.
               </p>
-              <p1>
+              <p class="p1">
                 Voici un extrait du Read.me
-              </p1>
+              </p>
               <div class="InformationProject">
                 <div class="Card">
                   <h3>Langue</h3>
@@ -134,7 +163,7 @@ onMounted(() => {
             <a href="https://github.com/Mayel-0/projet-chef-doeuvre-2024" target="_blank" rel="noopener noreferrer" class="ButtonProjet">Voir le Projet sur Github</a>
           </div>
         </div>
-        <div class="Project">
+        <div id="project3" class="Project">
           <div class="partTop">
             <img class="PhotoProject" src="/assets/assets_task_01k6gxy2w3f9hrh52byy50vtqg_1759357436_img_0.webp"/>
             <div class="textContenue">
@@ -158,9 +187,9 @@ onMounted(() => {
               <p>
                 Les CTF sont des environnements sécurisés qui permettent aux professionnels et aux étudiants en sécurité informatique d’apprendre, de pratiquer et de développer leurs compétences tout en s’amusant.
               </p>
-              <p1>
+              <p class="p1">
                 Voici un extrait du Read.me
-              </p1>
+              </p>
               <div class="contenueStatue">
                 <div class="ButtonStatue ButtonStatuefalse">Privé</div>
               </div>
@@ -170,11 +199,43 @@ onMounted(() => {
         </div>
       </div>
     </transition>
+    <transition name="fade">
+      <aside v-if="ShowParagarphe" >
+        <ul>
+          <li><a href="#project1" :class="{ active: activeSection === 'project1' }" >Eldoria Game</a></li>
+          <li><a href="#project2" :class="{ active: activeSection === 'project2' }" >Face_recognition</a></li>
+          <li><a href="#project3" :class="{ active: activeSection === 'project3' }" >CTF 2025</a></li>
+        </ul>
+      </aside>
+    </transition>
   </div>
 
 </template>
 
 <style SCSS>
+
+html {
+  scroll-behavior: smooth;
+}
+
+aside {
+  position: fixed;
+  left: 0px;
+  top: 50%;
+  bottom: 50%;
+  a {
+    color: #3C3C3C;
+    color: #A7895E; /* couleur de ton choix */
+    border-left: 3px solid #A7895E;
+    padding-left: 8px;
+  }
+  a.active {
+    font-weight: bold;
+    color: red;
+    border-left: 4px solid red;
+    background: rgba(255,0,0,0.1);
+  }
+}
 .ProjectPage {
   display: flex;
   flex-direction: column;
@@ -232,7 +293,7 @@ onMounted(() => {
         align-items: center;
         .textContenue{
           margin-bottom: 45px;
-          p1 {
+          .p1 {
             opacity: 0.6;
           }
           .contenueStatue {
