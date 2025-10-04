@@ -355,4 +355,35 @@ aside {
   opacity: 1;
   transform: translateY(0);
 }
+
+@media only screen and (max-width: 800px) {
+  aside {
+    display: none;
+  }
+  .ProjectPage {
+    .ProjectListes {
+      width: 100%;
+      .Project {
+        border: none;
+        box-shadow: none;
+        border-bottom: 2px #C5A880 solid;
+        border-top: 2px #C5A880 solid;
+        padding-bottom: 45px;
+        .partTop {
+          flex-direction: column;
+          .textContenue {
+            width: 100%;
+          }
+          .PhotoProject {
+            margin: 0px;
+            margin-bottom: 20px;
+          }
+        }
+        .partBottom {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
 </style>

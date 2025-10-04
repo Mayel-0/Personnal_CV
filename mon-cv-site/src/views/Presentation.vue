@@ -122,6 +122,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   p {
     color: #3C3C3C;
     text-align: justify;
@@ -131,38 +132,48 @@ onMounted(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 60px;
+    width: 60%;
+    box-shadow: 4px 4px 8px #525252;
+    padding-top: 75px;
+    border-radius: 35px;
+    margin-bottom: 75px;
     .JusteConteneur {
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .SecondePart {
-      gap: 15%;
-      padding-left: 10%;
-      padding-right: 10%;
+      gap: 10%;
+      width: 85%;
     }
     .FichiersPart {
       display: flex;
       flex-direction: column;
       gap: 50px;
+      width: 80%;
     }
     .LastPart {
+      border-bottom: 1px #C5A880 solid;
+      border-top: 1px #C5A880 solid;
+      padding: 25px 0px 65px 0px ;
         .textePrésentation {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 60%;
+          width: 80%;
         }
     }
     .FirtsPart {
+      padding-bottom: 45px;
+      border-bottom: 1px #C5A880 solid;
       .textePrésentation {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 60%;
+        width: 80%;
       }
     }
     .Fichiers {
@@ -185,6 +196,34 @@ onMounted(() => {
 
       .btn:hover {
         background-color: #C5A880;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .imgProfile {
+    height: 55%;
+    width: 55%;
+  }
+  .Présentation {
+    .ParagraphePrésentation {
+      border: none;
+      border-radius: 0px;
+      box-shadow: none;
+      width: 100%;
+      .SecondePart {
+        flex-direction: column;
+        gap: 50px;
+      }
+      .FirtsPart {
+        .textePrésentation {
+          width: 85%;
+        }
+      }
+      .LastPart {
+        .textePrésentation {
+          width: 85%;
+        }
       }
     }
   }

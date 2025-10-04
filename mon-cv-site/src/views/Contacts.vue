@@ -67,6 +67,7 @@ const ShowSVG = ref(false)
   margin-top: 2%;
   .ContactAll {
     border: 1px #C5A880 solid;
+    box-shadow: 4px 4px 8px #525252;
     border-radius: 35px;
     margin-top: 30px;
     height: auto;
@@ -148,5 +149,30 @@ const ShowSVG = ref(false)
 .fade-enter-to {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media only screen and (max-width: 800px) {
+  .Contacts {
+    .ContactAll {
+      flex-direction: column;
+      padding-bottom: 40px;
+      width: 100%;
+      border: none;
+      box-shadow: none;
+      gap: 80px;
+      .photo {
+        height: auto;
+        width: 60%;
+      }
+      .Links {
+        .Link {
+          width: 65%;
+        }
+        .text {
+          padding-top: 30px;
+        }
+      }
+    }
+  }
 }
 </style>

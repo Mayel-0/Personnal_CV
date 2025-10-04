@@ -1,6 +1,6 @@
 <template>
   <div class="Header">
-    <div class="HeaderTop">
+
       <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
         <a>Mes Projets</a>
       </RouterLink>
@@ -10,7 +10,6 @@
       <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">
         <a>Contacts</a>
       </RouterLink>
-    </div>
   </div>
 </template>
 
@@ -24,18 +23,7 @@
   height: 85px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-
-
-  .HeaderTop{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    /*position: fixed;
-    top: 0;*/
-  }
+  gap: 40px;
 }
 
 .Projet {
@@ -48,7 +36,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
-  width: 6%;
+  width: 145px;
   transition: padding 0.4s ease;
   transition: font-size 0.4s ease;
 
@@ -89,6 +77,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  width: 145px;
   transition: padding 0.4s ease;
   transition: font-size 0.4s ease;
 
@@ -129,6 +118,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  width: 145px;
   transition: padding 0.4s ease;
   transition: font-size 0.4s ease;
 
@@ -159,4 +149,64 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .Header {
+    border-radius: 0px;
+    gap: 0px;
+    .Projet {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0px;
+      border-radius: 0px;
+      border: none;
+      font-size: 20px;
+    }
+    .Projet.IsActive {
+      padding: 0px;
+      font-size: 25px;
+      a {
+        color: #E8DFD3;
+      }
+    }
+    .Home {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0px;
+      border-radius: 0px;
+      border: none;
+      font-size: 20px;
+    }
+    .Home.IsActive {
+      padding: 0px;
+      font-size: 25px;
+      a {
+        color: #E8DFD3;
+      }
+    }
+    .Contact {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0px;
+      border-radius: 0px;
+      border: none;
+      font-size: 20px;
+    }
+    .Contact.IsActive {
+      padding: 0px;
+      font-size: 25px;
+      a {
+        color: #E8DFD3;
+      }
+    }
+  }
+}
 </style>
