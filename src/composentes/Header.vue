@@ -1,10 +1,9 @@
 <template>
   <div class="Header">
-
       <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
         <a>Mes Projets</a>
       </RouterLink>
-      <RouterLink to="/" class="Home" :class="{ IsActive: $route.path === '/' }">
+      <RouterLink to="/Home" class="Home" :class="{ IsActive: $route.path === '/Home' }">
         <a>Présentation</a>
       </RouterLink>
       <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">

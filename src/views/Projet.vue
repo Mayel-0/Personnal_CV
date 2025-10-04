@@ -56,9 +56,6 @@ onUnmounted(() => {
         <h1 v-if="ShowTitle">Mes Projects</h1>
       </transition>
       <transition name="fade">
-        <div v-if="ShowParagarphe" class="TextIntro">
-          Voici une listes de la plus part de mes projects
-        </div>
       </transition>
     </div>
     <transition name="fade">
@@ -212,8 +209,7 @@ onUnmounted(() => {
 
 </template>
 
-<style SCSS>
-
+<style>
 html {
   scroll-behavior: smooth;
 }
@@ -222,7 +218,6 @@ aside {
   position: fixed;
   left: 0px;
   top: 50%;
-  bottom: 50%;
   a {
     color: #3C3C3C;
     color: #A7895E; /* couleur de ton choix */
@@ -246,7 +241,7 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 4%;
+    margin-top: 35px;
     svg {
       height: 75px;
       width: 75px;
@@ -349,7 +344,7 @@ aside {
 }
 .fade-enter-from {
   opacity: 0;
-  transform: translateY(-13px);
+  transform: translateY(-35px);
 }
 .fade-enter-to {
   opacity: 1;

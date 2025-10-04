@@ -8,7 +8,7 @@ import Header from './composentes/Header.vue';
     <router-view />
   </div>
 </template>
-<style SCSS>
+<style>
 body {
   width: 100%;
   width: 100%;

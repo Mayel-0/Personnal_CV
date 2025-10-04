@@ -1,8 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { texts } from '../lang.js'
+import { defineProps } from 'vue'
 
 const ShowTitle = ref(false)
 const ShowContacts = ref(false)
+const ShowSVG = ref(false)
+const t = texts[props.lang]
 
 onMounted(() => {
   setTimeout(() => {
@@ -13,7 +17,13 @@ onMounted(() => {
   }, 1000)
 })
 
-const ShowSVG = ref(false)
+const props = defineProps({
+  lang: {
+    type: String,
+    default: 'fr'
+  }
+})
+
 </script>
 <template>
   <div class="Contacts">
@@ -57,7 +67,7 @@ const ShowSVG = ref(false)
   </div>
 </template>
 
-<style SCSS>
+<style>
 .Contacts {
   display: flex;
   flex-direction: column;
@@ -77,7 +87,7 @@ const ShowSVG = ref(false)
 
     .photo {
       width: 30%;
-      height: 60%;
+      height: 55%;
       display: block;
       user-select: none;
       pointer-events: none;

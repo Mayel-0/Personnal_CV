@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { texts } from '../lang.js'
+import { defineProps } from 'vue'
 
-// variables réactives pour contrôler l'affichage
 const showTitle = ref(false)
 const showText = ref(false)
 
 onMounted(() => {
-  // au montage du composant, on déclenche les apparitions avec un délai
   setTimeout(() => {
     showTitle.value = true
   }, 500)
@@ -15,26 +15,30 @@ onMounted(() => {
     showText.value = true
   }, 1000)
 })
+
+const props = defineProps({
+  lang: {
+    type: String,
+    default: 'fr'
+  }
+})
+
+const currentTexts = texts[props.lang]
+
 </script>
 
 <template>
   <div class="Présentation">
-    <!-- On utilise v-if et <transition> pour animer -->
     <transition name="fade">
-      <h1 v-if="showTitle">Présentation</h1>
+      <h1 v-if="showTitle">{{ currentTexts.title }}</h1>
     </transition>
     <transition name="fade">
       <div v-if="showText" class="ParagraphePrésentation">
         <div class="FirtsPart JusteConteneur">
           <div class="textePrésentation">
             <img class="imgProfile" src="/assets/163682734.jpeg"/>
-            <h2>À propos de moi</h2>
-            <p>
-              Bonjour, je m’appelle <strong>Maël LLADO</strong>. Je suis actuellement étudiant à l’école privée
-              <strong>Ynov Campus Bordeaux</strong>, après avoir obtenu mon
-              <strong>Baccalauréat Professionnel SN (Systèmes Numériques), option RISC</strong>, avec la
-              <strong>mention Très Bien</strong>, au lycée polyvalent Jean-Monnet de Libourne.
-            </p>
+            <h2>{{ currentTexts.aboutMeTitle  }}</h2>
+            <p>{{ currentTexts.aboutMeText }}</p>
           </div>
         </div>
         <div class="SecondePart JusteConteneur">
