@@ -91,7 +91,7 @@ onMounted(() => {
           </div>
           <div class="Fichiers">
             <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">Mon CV</a>
-            <a href="/fichiers/Portfolio_Mael_LLADO.pdf" download class="btn">Mon Portfolio</a>
+            <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Mon Portfolio</a>
           </div>
         </div>
       </div>
