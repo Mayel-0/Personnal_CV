@@ -30,7 +30,7 @@ const currentTexts = texts[props.lang]
 <template>
   <div class="Présentation">
     <transition name="fade">
-      <h1 v-if="showTitle">{{ currentTexts.title }}</h1>
+      <h1 v-if="showTitle">{{ currentTexts.titleHome }}</h1>
     </transition>
     <transition name="fade">
       <div v-if="showText" class="ParagraphePrésentation">
@@ -38,64 +38,36 @@ const currentTexts = texts[props.lang]
           <div class="textePrésentation">
             <img class="imgProfile" src="/assets/163682734.jpeg"/>
             <h2>{{ currentTexts.aboutMeTitle  }}</h2>
-            <p>{{ currentTexts.aboutMeText }}</p>
+            <p v-html="currentTexts.aboutMeText"></p>
           </div>
         </div>
         <div class="SecondePart JusteConteneur">
           <div class="textePrésentation">
-            <h2>Parcours et expériences</h2>
-            <p>
-              Passionné d’informatique depuis le collège, j’ai orienté mon parcours vers la programmation.
-              Lors de mes stages chez <strong>Snark Factory</strong>, j’ai découvert le développement web
-              et appris le <strong>HTML, CSS, SCSS</strong> et le <strong>JavaScript</strong>, en réalisant
-              plusieurs sites en <strong>Vue.js</strong>.
-            </p>
-            <p>
-              J’ai également effectué d’autres stages en maintenance informatique et en boutique spécialisée,
-              ce qui m’a permis d’élargir mes compétences.
-            </p>
+            <h2>{{ currentTexts.parcoursTitle }}</h2>
+            <p v-html="currentTexts.parcoursText"></p>
+            <p>{{ currentTexts.parcoursTextSeconde }}</p>
           </div>
           <div class="textePrésentation">
-            <h2>Projets personnels</h2>
-            <p>
-              En autodidacte, j’ai appris le <strong>Python</strong> et développé un de mes plus gros projets :
-              un logiciel de <strong>reconnaissance faciale</strong>, présenté à l’oral de mon Bac. Ce projet
-              m’a permis d’apprendre à utiliser <strong>GitHub</strong> et à structurer mon code comme un
-              vrai développeur.
-            </p>
-            <p>
-              J’ai aussi expérimenté la <strong>programmation de jeux vidéo</strong> avec
-              <strong>Unreal Engine 5</strong>, par curiosité et pour élargir mes connaissances.
-            </p>
+            <h2>{{ currentTexts.projetsTitle }}</h2>
+            <p v-html="currentTexts.projetsText"></p>
+            <p v-html="currentTexts.projetsTextSeconde"></p>
           </div>
         </div>
         <div class="LastPart JusteConteneur">
           <div class="textePrésentation">
-            <h2>Objectifs</h2>
-            <p>
-              Mon objectif est de continuer à apprendre et à acquérir de l’expérience dans différents
-              domaines de l’informatique. Je souhaite devenir <strong>polyvalent</strong>, aussi bien en
-              <strong>développement web</strong>, <strong>full-stack</strong> qu’en
-              <strong>programmation de jeux vidéo</strong>, qui sont les sujets qui m’intéressent le plus.
-            </p>
-            <p>
-              J’ai également une première expérience en <strong>cybersécurité</strong>, grâce à mes trois années
-              de Bac Pro SN RISC, à ma participation à des <strong>CTF</strong> et à mes recherches personnelles.
-              Curieux et motivé, j’aime relever de nouveaux défis et je souhaite évoluer vers un métier passionnant
-              dans le développement informatique.
-            </p>
+            <h2>{{ currentTexts.objectifsTitle }}</h2>
+            <p v-html="currentTexts.objectifsText"></p>
+            <p v-html="currentTexts.objectifsTextSeconde"></p>
           </div>
         </div>
         <div class="FichiersPart JusteConteneur">
           <div class="textePrésentation">
-            <h2>Fichiers joints</h2>
-            <p>
-              Vous pouvez retrouver ici mon CV et mon portfolio pour en savoir plus sur mon parcours et mes projets.
-            </p>
+            <h2>{{ currentTexts.fichiersTitle }}</h2>
+            <p>{{ currentTexts.fichiersText }}</p>
           </div>
           <div class="Fichiers">
-            <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">Mon CV</a>
-            <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Mon Portfolio</a>
+            <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">{{ currentTexts.cvBtn }}</a>
+            <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">{{ currentTexts.portfolioBtn }}</a>
           </div>
         </div>
       </div>
@@ -104,6 +76,13 @@ const currentTexts = texts[props.lang]
 </template>
 
 <style scoped>
+#app {
+  .Header {
+    display: flex;
+  }
+
+}
+
 .imgProfile {
   border-radius: 50%;
   height: 20%;

@@ -12,6 +12,18 @@ const router = createRouter({
       component: () => import("../views/Presentation.vue"),
       props: true,
     },
+    {
+      path: "/:lang/contacts",
+      name: "Contacts",
+      component: () => import("../views/Contacts.vue"),
+      props: true,
+    },
+    {
+      path: "/:lang/projet",
+      name: "Projet",
+      component: () => import("../views/Projet.vue"),
+      props: true,
+    },
   ],
 });
 

@@ -1,13 +1,26 @@
+<script setup>
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { texts } from '../lang.js'
+
+const route = useRoute()
+
+const lang = computed(() => route.params.lang || 'en')
+
+const currentTexts = computed(() => texts[lang.value])
+
+</script>
+
 <template>
   <div class="Header">
-      <RouterLink to="/projet" class="Projet" :class="{ IsActive: $route.path === '/projet' }">
-        <a>Mes Projets</a>
+      <RouterLink :to="`/${lang}/projet`" class="Projet" :class="{ IsActive: $route.path === `/${lang}/projet` }">
+        <a>{{ currentTexts.titleProject }}</a>
       </RouterLink>
-      <RouterLink to="/Home" class="Home" :class="{ IsActive: $route.path === '/Home' }">
-        <a>Présentation</a>
+      <RouterLink :to="`/${lang}/Home`" class="Home" :class="{ IsActive: $route.path === `/${lang}/Home` }">
+        <a>{{ currentTexts.titleHome }}</a>
       </RouterLink>
-      <RouterLink to="/contacts" class="Contact" :class="{ IsActive: $route.path === '/contacts' }">
-        <a>Contacts</a>
+      <RouterLink :to="`/${lang}/contacts`" class="Contact" :class="{ IsActive: $route.path === `/${lang}/contacts` }">
+        <a>{{ currentTexts.titleContact }}</a>
       </RouterLink>
   </div>
 </template>
@@ -161,11 +174,11 @@
       padding: 0px;
       border-radius: 0px;
       border: none;
-      font-size: 20px;
+      font-size: 16px;
     }
     .Projet.IsActive {
       padding: 0px;
-      font-size: 25px;
+      font-size: 20px;
       a {
         color: #E8DFD3;
       }
@@ -179,11 +192,11 @@
       padding: 0px;
       border-radius: 0px;
       border: none;
-      font-size: 20px;
+      font-size: 16px;
     }
     .Home.IsActive {
       padding: 0px;
-      font-size: 25px;
+      font-size: 20px;
       a {
         color: #E8DFD3;
       }
@@ -197,11 +210,11 @@
       padding: 0px;
       border-radius: 0px;
       border: none;
-      font-size: 20px;
+      font-size: 16px;
     }
     .Contact.IsActive {
       padding: 0px;
-      font-size: 25px;
+      font-size: 20px;
       a {
         color: #E8DFD3;
       }
