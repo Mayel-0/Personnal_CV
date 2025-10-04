@@ -27,7 +27,7 @@ onMounted(() => {
       <div v-if="showText" class="ParagraphePrésentation">
         <div class="FirtsPart JusteConteneur">
           <div class="textePrésentation">
-            <img class="imgProfile" src="/public/assets/163682734.jpeg"/>
+            <img class="imgProfile" src="/assets/163682734.jpeg"/>
             <h2>À propos de moi</h2>
             <p>
               Bonjour, je m’appelle <strong>Maël LLADO</strong>. Je suis actuellement étudiant à l’école privée
@@ -90,8 +90,8 @@ onMounted(() => {
             </p>
           </div>
           <div class="Fichiers">
-            <a href="/public/fichiers/CV Mael LLADO V3.pdf" download class="btn">Mon CV</a>
-            <a href="/public/fichiers/Portfolio Mael LLADO.pdf" download class="btn">Mon Portfolio</a>
+            <a href="/fichiers/CV Mael LLADO V3.pdf" download class="btn">Mon CV</a>
+            <a href="/fichiers/Portfolio Mael LLADO.pdf" download class="btn">Mon Portfolio</a>
           </div>
         </div>
       </div>

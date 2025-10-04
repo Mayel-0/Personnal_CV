@@ -22,7 +22,7 @@ const ShowSVG = ref(false)
     </transition>
     <transition name="fade">
       <div v-if="ShowContacts" class="ContactAll">
-        <img class="photo" src="/public/assets/IMG_2227.png"/>
+        <img class="photo" src="/assets/IMG_2227.png"/>
         <div class="Links">
           <a class="Link Linkdin" href="https://www.linkedin.com/in/llado-mael-54008a384/" @mouseenter="ShowSVG = true" @mouseleave="ShowSVG = false">
             Linkedin
