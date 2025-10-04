@@ -1,6 +1,8 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from "vue";
+import { useRouter } from 'vue-router';
+import confetti from 'canvas-confetti';
+
 const router = useRouter()
 const ShowTitle = ref(false);
 const ShowParagarphe = ref(false);
@@ -10,15 +12,25 @@ function goHome(lang) {
 }
 
 onMounted(() => {
-  setTimeout(() => {
-    ShowTitle.value = true;
-  }, 500);
+  // Affichage des textes
+  setTimeout(() => { ShowTitle.value = true; }, 500);
+  setTimeout(() => { ShowParagarphe.value = true; }, 1000);
 
+  // Lancer les confettis après l'affichage de la page
   setTimeout(() => {
-    ShowParagarphe.value = true;
-  }, 1000);
+    launchConfetti();
+  }, 1200);
 });
 
+// Fonction pour lancer les confettis
+function launchConfetti() {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 },
+    colors: ['#C5A880', '#E8DFD3', '#A7895E', '#F9F6F1'],
+  });
+}
 </script>
 
 <template>
