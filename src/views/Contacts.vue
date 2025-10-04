@@ -67,12 +67,6 @@ const currentTexts = texts[props.lang]
 </template>
 
 <style>
-#app {
-  .Header {
-    display: flex;
-  }
-
-}
 
 .Contacts {
   display: flex;
@@ -81,6 +75,7 @@ const currentTexts = texts[props.lang]
   align-items: center;
   justify-items: center;
   margin-top: 2%;
+  height: 100%;
   .ContactAll {
     border: 1px #C5A880 solid;
     box-shadow: 4px 4px 8px #525252;
@@ -93,7 +88,7 @@ const currentTexts = texts[props.lang]
 
     .photo {
       width: 30%;
-      height: 55%;
+      height: 45%;
       display: block;
       user-select: none;
       pointer-events: none;
