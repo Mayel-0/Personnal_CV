@@ -65,7 +65,7 @@ onUnmounted(() => {
       <div v-if="ShowParagarphe" class="ProjectListes">
         <div id="project1" class="Project">
           <div class="partTop">
-            <img class="PhotoProject" src="/assets/assets-task_01k5e52ncte16sfyg8tzym9m9y-1758190521_img_0.webp"/>
+            <img class="PhotoProject" src="/public/assets/assets-task_01k5e52ncte16sfyg8tzym9m9y-1758190521_img_0.webp"/>
             <div class="textContenue">
               <h2>Projet_Red: Eldoria</h2>
               <p>Ce projet a été créé dans le cadre de mes études à Ynov Campus lors de ma première année (B1). Il a été réalisé en une semaine en Golang. On nous a demandé de créer un jeu CLI, c’est-à-dire en ligne de commande dans le terminal.</p>
@@ -118,7 +118,7 @@ onUnmounted(() => {
         </div>
         <div id="project2" class="Project">
           <div class="partTop">
-            <img class="PhotoProject" src="/assets/assets_task_01k6gwm67pfdjb350mnhqwt4fv_1759356168_img_1.webp"/>
+            <img class="PhotoProject" src="/public/assets/assets_task_01k6gwm67pfdjb350mnhqwt4fv_1759356168_img_1.webp"/>
             <div class="textContenue">
               <h2>Face Recognition</h2>
               <p>J’ai eu 4 semaines pour coder un logiciel en Python. J’ai dû réaliser plusieurs versions de mon code : une pour les photos, une autre pour les vidéos et une dernière pour la vidéo en direct via la webcam.</p>
@@ -165,7 +165,7 @@ onUnmounted(() => {
         </div>
         <div id="project3" class="Project">
           <div class="partTop">
-            <img class="PhotoProject" src="/assets/assets_task_01k6gxy2w3f9hrh52byy50vtqg_1759357436_img_0.webp"/>
+            <img class="PhotoProject" src="/public/assets/assets_task_01k6gxy2w3f9hrh52byy50vtqg_1759357436_img_0.webp"/>
             <div class="textContenue">
               <h2>CTF</h2>
               <p>J'ai participé au CTF 2025 sur le site Root Me, organisé par cette même plateforme.</p>
