@@ -266,7 +266,7 @@ aside {
         padding-bottom: 25px;
         border-bottom: 1px #A7895E solid;
         .PhotoProject {
-          height: 300px;
+          height: 250px;
           width: auto;
           border-radius: 35px;
           margin-right: 35px;
@@ -373,10 +373,20 @@ aside {
           .PhotoProject {
             margin: 0px;
             margin-bottom: 20px;
+            height: auto;
           }
         }
         .partBottom {
           padding: 0px;
+          .textContenue {
+            .InformationProject {
+              .Card {
+                .contenue {
+                  flex-direction: column;
+                }
+              }
+            }
+          }
         }
       }
     }
