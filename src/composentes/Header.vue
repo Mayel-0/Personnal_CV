@@ -16,7 +16,7 @@ const currentTexts = computed(() => texts[lang.value])
       <RouterLink :to="`/${lang}/projet`" class="Projet" :class="{ IsActive: $route.path === `/${lang}/projet` }">
         <a>{{ currentTexts.titleProject }}</a>
       </RouterLink>
-      <RouterLink :to="`/${lang}/Home`" class="Home" :class="{ IsActive: $route.path === `/${lang}/Home` }">
+      <RouterLink :to="`/${lang}/home`" class="Home" :class="{ IsActive: $route.path === `/${lang}/home` }">
         <a>{{ currentTexts.titleHome }}</a>
       </RouterLink>
       <RouterLink :to="`/${lang}/contacts`" class="Contact" :class="{ IsActive: $route.path === `/${lang}/contacts` }">
