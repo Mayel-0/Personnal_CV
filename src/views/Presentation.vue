@@ -36,7 +36,7 @@ const currentTexts = texts[props.lang]
       <div v-if="showText" class="ParagraphePrésentation">
         <div class="FirtsPart JusteConteneur">
           <div class="textePrésentation">
-            <img class="imgProfile" src="/assets/163682734.jpeg"/>
+            <img class="imgProfile" src="/assets/Capture_d’écran_2025-10-06_à _9.35.44.png"/>
             <h2>{{ currentTexts.aboutMeTitle  }}</h2>
             <p v-html="currentTexts.aboutMeText"></p>
           </div>
@@ -84,9 +84,9 @@ const currentTexts = texts[props.lang]
 }
 
 .imgProfile {
-  border-radius: 50%;
-  height: 20%;
-  width: 20%;
+  border-radius: 70%;
+  height: 30%;
+  width: 30%;
 }
 .fade-enter-active {
   transition: all 1s ease;

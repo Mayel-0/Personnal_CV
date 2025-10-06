@@ -33,7 +33,7 @@ const currentTexts = texts[props.lang]
     </transition>
     <transition name="fade">
       <div v-if="ShowContacts" class="ContactAll">
-        <img class="photo" src="/assets/IMG_2227.png"/>
+        <img class="photo" src="/assets/Capture_d’écran_2025-10-06_à _9.35.44.png"/>
         <div class="Links">
           <a class="Link Linkdin" href="https://www.linkedin.com/in/llado-mael-54008a384/" target="_blank" rel="noopener noreferrer" @mouseenter="ShowSVG = true" @mouseleave="ShowSVG = false">
             Linkedin
