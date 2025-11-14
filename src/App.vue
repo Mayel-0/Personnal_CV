@@ -28,4 +28,21 @@ body {
    /* background-color: red; */
   }
 }
+
+body.night {
+  background: #1D1A1A;
+  color: #ffffff;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+body.day {
+  background: #F9F6F1;
+  color: #111111;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+body.night p {
+  color: #D9D9D9; /* ou une autre couleur spéciale */
+}
+body.day p {
+  color: #222; /* ou autre */
+}
 </style>

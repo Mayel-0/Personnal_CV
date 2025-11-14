@@ -1,0 +1,8 @@
+<template>
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="13" cy="13" r="13" fill="#D9D9D9"/>
+    <ellipse cx="18.2812" cy="18.2812" rx="3.65625" ry="3.65625" fill="#1D1A1A" fill-opacity="0.77"/>
+    <ellipse cx="6.70313" cy="14.625" rx="4.26563" ry="4.875" fill="#1D1A1A" fill-opacity="0.77"/>
+    <ellipse cx="14.625" cy="7.3125" rx="3.65625" ry="3.65625" fill="#1D1A1A" fill-opacity="0.77"/>
+  </svg>
+</template>

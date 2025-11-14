@@ -46,7 +46,11 @@ export const texts = {
     descriptionTextP3_3: `Le but ultime est de « capturer le drapeau », qui est généralement un code secret ou un fichier spécifique caché dans un système informatique vulnérable.`,
     descriptionTextP3_4: `Les CTF sont des environnements sécurisés qui permettent aux professionnels et aux étudiants en sécurité informatique d’apprendre, de pratiquer et de développer leurs compétences tout en s’amusant.`,
 
+    textProjectP5: `One Piece DLE est un projet de fan game basé sur l'univers de One Piece. Le but de ce jeux est de trouver un personnage precis dans l'univers de one piece comme un geoguessr pour les personnage.`,
+    textGithubP5: `Projet a etais fait personnelement en dehors de mes projets d'école pour le plaisir de creer ce jeux. en vue.js full front il y a une database prévue en MySQL pour le futur pour l'instant tout est en front (ce site fonctionne et recoit des améliorations).`,
     textPrivate: `Privé`,
+    LikeSite: `lien vers le site web`,
+    descriptionTextP5: `Ce jeux est en vue.js pour l'instant en full front-end mais elle obtiendtiendra bientot une base de donnée MySQL avec un backend en golang pour gere la comunication entre le front et la base de donnée. ce dernier est un fan game basé sur l'univers de One Piece qui comport plusieur mode de jeux différents le classique ou l'on doit trouver un personnage précis dans les 250 que contien le json (base de données actuelle en front end) en ce basant sur les information comme la prime, le haki, la taille etc... un autre mode de jeux qui est le fruit du demon ou l'on doit deviner le fruit du démon d'un personnage en se basant sur des indices et un dernier mode de jeux ou l'on doit deviner a quelle personnage appartient quel rire, ce jeux est simple mais amusant et j'ai pris plaisir a le coder. c'est un projet amusant et serieux qui grandi au fur et a mesure des mise a jour et de mes connaissances en dev web.`,
   },
   en: {
     titleHome: "Presentation",
@@ -95,5 +99,10 @@ export const texts = {
     descriptionTextP3_3: `The ultimate goal is to 'capture the flag', which is usually a secret code or a specific file hidden within a vulnerable computer system.`,
     descriptionTextP3_4: `CTFs are secure environments that allow cybersecurity professionals and students to learn, practice, and develop their skills while having fun.`,
     textPrivate: `Private`,
+
+    textProjectP5: `One Piece DLE is a fan game project based on the One Piece universe. The goal of the game is to find a specific character from the One Piece world, similar to a GeoGuessr but for characters.`,
+    textGithubP5: `This project was created personally outside of my school projects for the enjoyment of creating this game. It is built in Vue.js as a full front-end application, with a planned MySQL database for the future. For now, everything is front-end (this site is functional and continues to receive improvements).`,
+    LikeSite: `Link to the website`,
+    descriptionTextP5: `This game is built in Vue.js, currently as a full front-end application, but it will soon feature a MySQL database with a Golang backend to manage communication between the front-end and the database. It is a fan game based on the One Piece universe that includes several different game modes: the classic mode where players must find a specific character among the 250 characters contained in the current JSON database (front-end only) based on information such as bounty, haki, height, etc.; another mode called 'Devil Fruit' where players must guess a character's devil fruit based on clues; and a final mode where players must match laughs to their respective characters. This game is simple yet fun to play, and I enjoyed coding it. It is an entertaining and serious project that continues to grow with updates and my increasing knowledge of web development.`,
   },
 };

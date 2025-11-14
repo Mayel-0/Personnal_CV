@@ -187,6 +187,26 @@ const currentTexts = texts[props.lang]
             <a href="https://github.com/Mayel-0/CTF-Entrainement-et-Realisation" target="_blank" rel="noopener noreferrer" class="ButtonProjet">{{ currentTexts.linkTextGithub }}</a>
           </div>
         </div>
+        <div id="project4" class="Project">
+          <div class="partTop">
+            <img class="PhotoProject" src="/assets/onepiecedle.png"/>
+            <div class="textContenue">
+              <h2>One piece DLE</h2>
+              <p>{{ currentTexts.textProjectP5 }}</p>
+              <h3>{{ currentTexts.titleGithubP2 }}</h3>
+              <p>{{ currentTexts.textGithubP5 }}</p>
+            </div>
+          </div>
+          <div class="partBottom">
+            <div class="textContenue">
+              <p>{{ currentTexts.descriptionTextP5 }}</p>
+              <div class="contenueStatue">
+                <div class="ButtonStatue">Public</div>
+              </div>
+            </div>
+            <a href="https://one-piece-dle-game.vercel.app/" target="_blank" rel="noopener noreferrer" class="ButtonProjet">{{ currentTexts.LikeSite }}</a>
+          </div>
+        </div>
       </div>
     </transition>
     <transition name="fade">
@@ -195,6 +215,7 @@ const currentTexts = texts[props.lang]
           <li><a href="#project1" :class="{ active: activeSection === 'project1' }" >Eldoria Game</a></li>
           <li><a href="#project2" :class="{ active: activeSection === 'project2' }" >Face_recognition</a></li>
           <li><a href="#project3" :class="{ active: activeSection === 'project3' }" >CTF 2025</a></li>
+          <li><a href="#project4" :class="{ active: activeSection === 'project4' }" >One piece DLE</a></li>
         </ul>
       </aside>
     </transition>
@@ -208,6 +229,15 @@ const currentTexts = texts[props.lang]
     display: flex;
   }
 
+}
+body.night .ProjectPage .Project {
+  background-color: #1D1A1A;
+  color: #ffffff;
+  border: 1px #C5A880 solid;
+}
+
+body.night .ProjectPage svg {
+  fill: #D9D9D9;
 }
 
 html {

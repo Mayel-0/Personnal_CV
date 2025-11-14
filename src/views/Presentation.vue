@@ -76,11 +76,20 @@ const currentTexts = texts[props.lang]
 </template>
 
 <style scoped>
+
+body.night .ParagraphePrésentation {
+  border: 1px #C5A880 solid;
+}
+
 #app {
   .Header {
     display: flex;
   }
+}
 
+p {
+  color: #3C3C3C;
+  text-align: justify;
 }
 
 .imgProfile {
@@ -106,10 +115,6 @@ const currentTexts = texts[props.lang]
   justify-content: center;
   align-items: center;
 
-  p {
-    color: #3C3C3C;
-    text-align: justify;
-  }
   .ParagraphePrésentation {
     display: flex;
     flex-direction: column;
