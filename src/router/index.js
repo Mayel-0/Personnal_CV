@@ -6,6 +6,7 @@ const router = createRouter({
     { path: "/", name: "Langage", component: () => import("../views/Langage.vue") },
     { path: "/projet", name: "Projet", component: () => import("../views/Projet.vue") },
     { path: "/contacts", name: "Contacts", component: () => import("../views/Contacts.vue") },
+    { path: "/secret", name: "Secret", component: () => import("../views/secret.vue") },
     {
       path: "/:lang/home",
       name: "home",
@@ -22,6 +23,12 @@ const router = createRouter({
       path: "/:lang/projet",
       name: "Projet",
       component: () => import("../views/Projet.vue"),
+      props: true,
+    },
+    {
+      path: "/:lang/secret",
+      name: "Secret",
+      component: () => import("../views/secret.vue"),
       props: true,
     },
   ],

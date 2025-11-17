@@ -14,7 +14,7 @@ body {
   width: 100%;
   background-color: #F9F6F1;
   color: #3C3C3C;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   padding: 0px;
   margin: 0px;
 

@@ -22,7 +22,7 @@ export const texts = {
 
     textContact: `Toujours ouvert à discuter, que ce soit pour des projets professionnels, personnels ou pour des offres d’emploi 👋 !`,
 
-    titleProject: `Mes Projects`,
+    titleProject: `Mes Projets`,
 
     titleProjectP1: `Projet_Red: Eldoria`,
     textProjectP1: `Ce projet a été créé dans le cadre de mes études à Ynov Campus lors de ma première année (B1). Il a été réalisé en une semaine en Golang. On nous a demandé de créer un jeu CLI, c’est-à-dire en ligne de commande dans le terminal.`,
@@ -51,6 +51,19 @@ export const texts = {
     textPrivate: `Privé`,
     LikeSite: `lien vers le site web`,
     descriptionTextP5: `Ce jeux est en vue.js pour l'instant en full front-end mais elle obtiendtiendra bientot une base de donnée MySQL avec un backend en golang pour gere la comunication entre le front et la base de donnée. ce dernier est un fan game basé sur l'univers de One Piece qui comport plusieur mode de jeux différents le classique ou l'on doit trouver un personnage précis dans les 250 que contien le json (base de données actuelle en front end) en ce basant sur les information comme la prime, le haki, la taille etc... un autre mode de jeux qui est le fruit du demon ou l'on doit deviner le fruit du démon d'un personnage en se basant sur des indices et un dernier mode de jeux ou l'on doit deviner a quelle personnage appartient quel rire, ce jeux est simple mais amusant et j'ai pris plaisir a le coder. c'est un projet amusant et serieux qui grandi au fur et a mesure des mise a jour et de mes connaissances en dev web.`,
+
+    SecretPageH1: "Vous avez trouvé la page secrète !",
+
+    Score: "Score",
+    Level: "Niveau",
+    record: "Record",
+    InProgress: "En cours...",
+    start: "Démarrer",
+    resume: "Reprendre",
+    pause: "Pause",
+    reset: "Recommencer",
+    controls: "Contrôles",
+    instructions: "Mange les pommes 🍎 pour grandir ! Évite les murs et ton corps !",
   },
   en: {
     titleHome: "Presentation",
@@ -104,5 +117,17 @@ export const texts = {
     textGithubP5: `This project was created personally outside of my school projects for the enjoyment of creating this game. It is built in Vue.js as a full front-end application, with a planned MySQL database for the future. For now, everything is front-end (this site is functional and continues to receive improvements).`,
     LikeSite: `Link to the website`,
     descriptionTextP5: `This game is built in Vue.js, currently as a full front-end application, but it will soon feature a MySQL database with a Golang backend to manage communication between the front-end and the database. It is a fan game based on the One Piece universe that includes several different game modes: the classic mode where players must find a specific character among the 250 characters contained in the current JSON database (front-end only) based on information such as bounty, haki, height, etc.; another mode called 'Devil Fruit' where players must guess a character's devil fruit based on clues; and a final mode where players must match laughs to their respective characters. This game is simple yet fun to play, and I enjoyed coding it. It is an entertaining and serious project that continues to grow with updates and my increasing knowledge of web development.`,
+
+    SecretPageH1: "You have found the secret page!",
+    Score: "Score",
+    Level: "Level",
+    record: "Record",
+    InProgress: "In progress...",
+    start: "Start",
+    resume: "Resume",
+    pause: "break",
+    reset: "Reset",
+    controls: "Controls",
+    instructions: "Eat the apples 🍎 to grow! Avoid the walls and your body!",
   },
 };
