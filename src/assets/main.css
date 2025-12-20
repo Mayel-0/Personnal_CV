@@ -55,6 +55,17 @@ h2 {
   flex-direction: column;
 }
 
+.DownloadLinks a {
+  padding: 6px 10px 6px 10px;
+  border-radius: 25px;
+  transition: all 0.3s ease-in;
+}
+
+.DownloadLinks a:hover {
+  background-color: var(--AccentCouleur);
+  color: var(--TextCouleur);
+}
+
 header {
   border-bottom: 3px solid var(--TertiaireCouleur);
   color: var(--AccentCouleur);
