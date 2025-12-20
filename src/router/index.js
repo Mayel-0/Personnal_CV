@@ -3,32 +3,15 @@ import { createRouter, createWebHistory } from "vue-router";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: "/", name: "Langage", component: () => import("../views/Langage.vue") },
-    { path: "/projet", name: "Projet", component: () => import("../views/Projet.vue") },
-    { path: "/contacts", name: "Contacts", component: () => import("../views/Contacts.vue") },
-    { path: "/secret", name: "Secret", component: () => import("../views/secret.vue") },
     {
-      path: "/:lang/home",
-      name: "home",
-      component: () => import("../views/Presentation.vue"),
-      props: true,
-    },
-    {
-      path: "/:lang/contacts",
-      name: "Contacts",
-      component: () => import("../views/Contacts.vue"),
-      props: true,
-    },
-    {
-      path: "/:lang/projet",
+      path: "/projet",
       name: "Projet",
       component: () => import("../views/Projet.vue"),
-      props: true,
     },
     {
-      path: "/:lang/secret",
-      name: "Secret",
-      component: () => import("../views/secret.vue"),
+      path: "/",
+      name: "home",
+      component: () => import("../views/Home.vue"),
       props: true,
     },
   ],

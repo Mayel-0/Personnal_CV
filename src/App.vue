@@ -1,48 +1,70 @@
 <script setup>
-import Header from './composentes/Header.vue';
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import Header from '../src/components/Header.vue'
+import Footer from '../src/components/Footer.vue'
+
+const route = useRoute()
+
+const isContactOpen = ref(false)
+const animationOut = ref(false)
+const projetout = ref(false)
+const isPresentationOpen = ref(false)
+
+function toggleContact() {
+  isContactOpen.value = !isContactOpen.value
+  console.log('ce value is', isContactOpen.value)
+}
+
+function toggleProject() {
+  animationOut.value = true
+  console.log('animationOut', animationOut.value)
+}
+
+function toggleAcceuil() {
+ projetout.value = true
+ console.log(projetout.value)
+}
+
+function togglePresentation() {
+  isPresentationOpen.value = !isPresentationOpen.value
+  console.log(' presentation ce value is', isPresentationOpen.value)
+}
+
+// reset quand on revient sur la page 'home'
+watch(
+  () => route.name,
+  (newName) => {
+    if (newName === 'home') {
+      animationOut.value = false
+      projetout.value = false
+      isContactOpen.value = false
+      isPresentationOpen.value = false
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
-  <div class="Conteneur">
-    <Header />
-    <router-view />
+  <div class="layout">
+    <Header
+      @toggle-contact="toggleContact"
+      @toggle-acceuil="toggleAcceuil"
+      :is-contact-open="isContactOpen"
+      :is-presentation-open="isPresentationOpen"
+    />
+    <RouterView :is-contact-open="isContactOpen"
+    :animationout="animationOut"
+    :projetout="projetout"
+    :is-presentation-open="isPresentationOpen"
+    />
+    <Footer
+      @toggle-presentation="togglePresentation"
+      @toggle-project="toggleProject"
+      :is-contact-open="isContactOpen"
+      :animationout="animationOut"
+      :is-presentation-open="isPresentationOpen"
+    />
   </div>
 </template>
-<style>
-body {
-  width: 100%;
-  width: 100%;
-  background-color: #F9F6F1;
-  color: #3C3C3C;
-  font-family: 'Work Sans', sans-serif;
-  padding: 0px;
-  margin: 0px;
-
-  .Conteneur{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   /* background-color: red; */
-  }
-}
-
-body.night {
-  background: #1D1A1A;
-  color: #ffffff;
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-body.day {
-  background: #F9F6F1;
-  color: #111111;
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-body.night p {
-  color: #D9D9D9; /* ou une autre couleur spéciale */
-}
-body.day p {
-  color: #222; /* ou autre */
-}
-</style>

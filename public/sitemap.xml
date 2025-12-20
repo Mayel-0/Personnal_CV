@@ -6,62 +6,16 @@
     <lastmod>2024-06-10T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/"/>
   </url>
   <url>
-    <loc>https://maelllado.vercel.app/fr/</loc>
+    <loc>https://maelllado.vercel.app/projet</loc>
     <lastmod>2024-06-10T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/"/>
+    <priority>8.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/projet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/projet"/>
   </url>
-  <url>
-    <loc>https://maelllado.vercel.app/en/</loc>
-    <lastmod>2024-06-10T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/"/>
-  </url>
-  <url>
-    <loc>https://maelllado.vercel.app/projects/</loc>
-    <lastmod>2024-06-10T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/projects/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/projects/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/projects/"/>
-  </url>
-  <url>
-    <loc>https://maelllado.vercel.app/contact/</loc>
-    <lastmod>2024-06-10T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/contact/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/contact/"/>
-  </url>
-  <url>
-    <loc>https://maelllado.vercel.app/secret/</loc>
-    <lastmod>2024-06-10T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/secret/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/secret/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/secret/"/>
-  </url>
-  <url>
-    <loc>https://maelllado.vercel.app/fr/home/</loc>
-    <lastmod>2024-06-10T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maelllado.vercel.app/fr/home/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maelllado.vercel.app/en/home/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maelllado.vercel.app/home/"/>
-  </url>
+
 </urlset>
