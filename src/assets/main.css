@@ -168,7 +168,7 @@ main {
   flex: 1;
   img {
     filter: drop-shadow( 5px 10px 25px #00000074);
-    height: 650px;
+    height: 60%;
     transition: all 0.8s ease-in-out;
     width: auto;
     position: absolute;
@@ -284,10 +284,9 @@ main div:nth-child(4) {
 @keyframes imgOut {
   from {
     opacity: 1;
-    height: 650px;
   } to {
     opacity: 0;
-    height: 400px;
+    height: 30%;
   }
 }
 
@@ -423,3 +422,126 @@ main div:nth-child(4) {
   transform: translateY(0);
 }
 
+.ButtonContactPhone {
+  display: none;
+}
+
+main section {
+  display: none;
+}
+
+.color {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .color {
+    display: flex;
+  }
+
+
+  main .containeur,
+  header .DownloadLinks a{
+    display: none;
+  }
+  footer button,
+  header button {
+    display: none;
+  }
+
+  main img{
+    height: 60%;
+  }
+
+  main .PhoneButton {
+    background-color: var(--AccentCouleur);
+    color: var(--TextCouleur);
+    padding: 6px 10px 6px 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+  }
+
+  main section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ButtonContactPhone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 13px;
+    button {
+      display: flex;
+      width: 100%;
+      background-color: var(--AccentCouleur);
+      color: var(--TextCouleur);
+      box-shadow: none;
+      border: none;
+      padding: 6px 10px 6px 10px;
+      border-radius: 25px;
+      margin: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .ButtonContact {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  main div:nth-child(2) {
+    margin-top: 0%;
+  }
+  .range {
+    height: 50%;
+    gap: 30px;
+  }
+  .Links .Link{
+    width: 100%;
+    background-color: transparent;
+    color: var(--AccentCouleur);
+    svg {
+      fill: var(--AccentCouleur);
+      margin-left: 0;
+    }
+  }
+  .range .RangButton:first-child > button:nth-child(1) svg,
+  .range .RangButton:first-child > button:nth-child(2) svg{
+    transform: rotate(180deg);
+  }
+
+  .RangButton {
+    gap: 30px;
+    button {
+      width: 100%;
+      background-color: var(--AccentCouleur);
+      color: var(--TextCouleur);
+      box-shadow: none;
+      border: none;
+      padding: 12px 18px 12px 18px;
+      font-size: 20px;
+      border-radius: 25px;
+      margin: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .ButtonContact {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        color: var(--TextCouleur);
+      }
+    }
+  }
+}

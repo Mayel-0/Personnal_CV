@@ -7,6 +7,7 @@ import Footer from '../src/components/Footer.vue'
 const route = useRoute()
 
 const isContactOpen = ref(false)
+const isAnnexeOpen = ref(false)
 const animationOut = ref(false)
 const projetout = ref(false)
 const isPresentationOpen = ref(false)
@@ -26,6 +27,11 @@ function toggleAcceuil() {
  console.log(projetout.value)
 }
 
+function toggleAnnexe() {
+  isAnnexeOpen.value = !isAnnexeOpen.value
+  console.log('ce value is', isAnnexeOpen.value)
+}
+
 function togglePresentation() {
   isPresentationOpen.value = !isPresentationOpen.value
   console.log(' presentation ce value is', isPresentationOpen.value)
@@ -40,6 +46,7 @@ watch(
       projetout.value = false
       isContactOpen.value = false
       isPresentationOpen.value = false
+      isAnnexeOpen.value = false
     }
   },
   { immediate: true }
@@ -51,13 +58,22 @@ watch(
     <Header
       @toggle-contact="toggleContact"
       @toggle-acceuil="toggleAcceuil"
+      @toggle-presentation="togglePresentation"
+      @toggle-annexe="toggleAnnexe"
+      :is-Annexe-Open="isAnnexeOpen"
       :is-contact-open="isContactOpen"
       :is-presentation-open="isPresentationOpen"
     />
-    <RouterView :is-contact-open="isContactOpen"
+    <RouterView
+    @toggle-project="toggleProject"
+    @toggle-presentation="togglePresentation"
+    @toggle-contact="toggleContact"
+    @toggle-annexe="toggleAnnexe"
+    :is-contact-open="isContactOpen"
     :animationout="animationOut"
     :projetout="projetout"
     :is-presentation-open="isPresentationOpen"
+    :is-Annexe-Open="isAnnexeOpen"
     />
     <Footer
       @toggle-presentation="togglePresentation"

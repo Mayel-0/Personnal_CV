@@ -1,5 +1,28 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import Arrow from '../components/Arrow.vue'
+
+const emit = defineEmits(['toggle-contact', 'toggle-acceuil', 'toggle-project', 'toggle-presentation', 'toggle-annexe'])
+
+const isMobile = ref(false)
+
+const updateIsMobile = () => {
+  // équivalent d'une media query (max-width: 768px)
+  isMobile.value = window.matchMedia('(max-width: 800px)').matches
+}
+
+onMounted(() => {
+  updateIsMobile()
+  window.addEventListener('resize', updateIsMobile)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobile)
+})
+
+const route = useRoute()
+const router = useRouter()
 
 const props = defineProps({
   isContactOpen: {
@@ -14,6 +37,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isAnnexeOpen: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const accentPicker = ref(null)
@@ -24,6 +51,12 @@ const ContaineurContact = ref(null)
 const containeur1Presentation = ref(null)
 const containeur2Presentation = ref(null)
 const containeur3Presentation = ref(null)
+const Containeur1PhoneV = ref(null)
+const Containeur2PhoneV = ref(null)
+const Containeur3PhoneV = ref(null)
+const Containeur4PhoneV = ref(null)
+const PhoneV = ref(null)
+const PhoneAnnexes = ref(null)
 
 onMounted(() => {
   accentPicker.value.addEventListener('input', () => {
@@ -39,22 +72,31 @@ onMounted(() => {
 watch(
   () => props.isContactOpen,
   (newVal) => {
-    if (!imgRef.value && Containeur1.value && Containeur2.value && ContaineurContact.value  ) return   // sécurité
+    if (!imgRef.value && Containeur1.value && Containeur2.value && ContaineurContact.value && PhoneV.value ) return   // sécurité
 
     const delay = 500
     setTimeout(() => {
     if (newVal) {
       console.log('isContactOpen vient de passer à true')
-      imgRef.value.style.height = '480px'
+      imgRef.value.style.height = '50%'
       Containeur1.value.style.display = 'none'
       Containeur2.value.style.display = 'none'
       ContaineurContact.value.style.display = 'flex'
+      if (isMobile.value) {
+        PhoneV.value.style.display = 'none'
+      }
     } else {
       console.log('isContactOpen vient de passer à false')
-      imgRef.value.style.height = '650px'
+      imgRef.value.style.height = '60%'
       Containeur1.value.style.display = 'flex'
       Containeur2.value.style.display = 'flex'
       ContaineurContact.value.style.display = 'none'
+      if (isMobile.value) {
+        Containeur1.value.style.display = 'none'
+        Containeur2.value.style.display = 'none'
+        imgRef.value.style.height = '60%'
+        PhoneV.value.style.display = 'flex'
+      }
     }
     }, delay)
   }
@@ -63,7 +105,7 @@ watch(
 watch(
   () => props.isPresentationOpen,
   (newVal) => {
-    if (!imgRef.value || !Containeur1.value || !Containeur2.value || !ContaineurContact.value || !containeur1Presentation.value || !containeur2Presentation.value || !containeur3Presentation.value) return
+    if (!imgRef.value || !Containeur1.value || !Containeur2.value || !ContaineurContact.value || !containeur1Presentation.value || !containeur2Presentation.value || !containeur3Presentation.value || !PhoneV.value || !Containeur1PhoneV.value || !Containeur2PhoneV.value || !Containeur3PhoneV.value || !Containeur4PhoneV.value) return
 
     const delay = 500
     setTimeout(() => {
@@ -71,22 +113,87 @@ watch(
         Containeur1.value.style.display = 'none'
         Containeur2.value.style.display = 'none'
         imgRef.value.style.left = '75%'
-        imgRef.value.style.height = '480px'
+        imgRef.value.style.height = '45%'
         containeur1Presentation.value.style.display = 'flex'
         containeur2Presentation.value.style.display = 'flex'
         containeur3Presentation.value.style.display = 'flex'
+        if (isMobile.value) {
+          PhoneV.value.style.display = 'none'
+          imgRef.value.style.opacity = '0'
+          imgRef.value.style.left = '50%'
+          containeur1Presentation.value.style.display = 'none'
+          containeur2Presentation.value.style.display = 'none'
+          containeur3Presentation.value.style.display = 'none'
+          Containeur1PhoneV.value.style.display = 'flex'
+          Containeur2PhoneV.value.style.display = 'flex'
+          Containeur3PhoneV.value.style.display = 'flex'
+          Containeur4PhoneV.value.style.display = 'flex'
+        }
       } else {
         Containeur1.value.style.display = 'flex'
         Containeur2.value.style.display = 'flex'
         imgRef.value.style.left = '50%'
-        imgRef.value.style.height = '650px'
+        imgRef.value.style.height = '60%'
         containeur1Presentation.value.style.display = 'none'
         containeur2Presentation.value.style.display = 'none'
         containeur3Presentation.value.style.display = 'none'
+        if (isMobile.value) {
+          Containeur1.value.style.display = 'none'
+          Containeur2.value.style.display = 'none'
+          PhoneV.value.style.display = 'flex'
+          imgRef.value.style.opacity = '1'
+          Containeur1PhoneV.value.style.display = 'none'
+          Containeur2PhoneV.value.style.display = 'none'
+          Containeur3PhoneV.value.style.display = 'none'
+          Containeur4PhoneV.value.style.display = 'none'
+        }
       }
     }, delay)
   }
 )
+
+watch(
+  () => props.isAnnexeOpen,
+  (newVal) => {
+    if (!imgRef.value || !PhoneV.value || !PhoneAnnexes.value) return
+
+    const delay = 500
+    setTimeout(() => {
+      if (newVal) {
+        if(isMobile) {
+          PhoneV.value.style.display = 'none'
+          PhoneAnnexes.value.style.display = 'flex'
+        }
+      } else {
+        if(isMobile) {
+          PhoneV.value.style.display = 'flex'
+          PhoneAnnexes.value.style.display = 'none'
+        }
+      }
+    }, delay)
+  }
+)
+
+async function goToProject() {
+  emit('toggle-project')
+
+  await new Promise(r => setTimeout(r, 800))
+
+  router.push({ name: 'Projet' })
+}
+
+function goToPresentation() {
+  emit('toggle-presentation')
+}
+
+function onClickContact() {
+  emit('toggle-contact')
+}
+
+function onClickAnnexe() {
+  emit('toggle-annexe')
+}
+
 </script>
 
 <template>
@@ -170,10 +277,99 @@ watch(
         J’ai également une première expérience en <strong>cybersécurité</strong>, grâce à mes trois années de Bac Pro SN RISC, à ma participation à des <strong>CTF</strong> et à mes recherches personnelles. Curieux et motivé, j’aime relever de nouveaux défis et je souhaite évoluer vers un métier passionnant dans le développement informatique.
       </p>
     </div>
+    <div class="PhoneVersionAffichage">
+      <div class="containeur" ref="Containeur1PhoneV" :class="{'animated-presentation1': props.isPresentationOpen, 'animated-presentation1-out': !props.isPresentationOpen}" >
+        <h2>À propos de moi</h2>
+        <p>
+          Bonjour, je m’appelle <strong>Maël LLADO.</strong>
+          Je suis actuellement étudiant à l’école privée <strong>Ynov Campus Bordeaux</strong>,
+          après avoir obtenu mon <strong>Baccalauréat Professionnel SN (Systèmes Numériques), option RISC</strong>
+          , avec la <strong>mention Très Bien</strong>, au lycée polyvalent Jean-Monnet de Libourne.
+        </p>
+      </div>
+      <div class="containeur presentation" ref="Containeur2PhoneV" :class="{'animated-presentation1': props.isPresentationOpen, 'animated-presentation1-out': !props.isPresentationOpen}">
+        <h2>Parcours et expériences</h2>
+        <p>
+          Passionné d’informatique depuis le collège, j’ai orienté mon parcours vers la programmation. Lors de mes stages chez <strong>Snark Factory</strong>, j’ai découvert le développement web et appris le <strong>HTML, CSS, SCSS et le JavaScript</strong> , en réalisant plusieurs sites en <strong>Vue.js.</strong>
+
+          J’ai également effectué d’autres stages en maintenance informatique et en boutique spécialisée, ce qui m’a permis d’élargir mes compétences.
+        </p>
+      </div>
+      <div class="containeur presentation" ref="Containeur3PhoneV" :class="{'animated-presentation2': props.isPresentationOpen, 'animated-presentation2-out': !props.isPresentationOpen}">
+        <h2>Projets personnels</h2>
+        <p>
+          En autodidacte, j’ai appris le <strong>Python</strong> et développé un de mes plus gros projets : un logiciel de <strong>reconnaissance faciale</strong>, présenté à l’oral de mon Bac. Ce projet m’a permis d’apprendre à utiliser <strong>GitHub</strong> et à structurer mon code comme un vrai développeur.
+
+          J’ai aussi expérimenté <strong>la programmation de jeux vidéo avec Unreal Engine 5</strong>, par curiosité et pour élargir mes connaissances.
+        </p>
+      </div>
+      <div class="containeur presentation" ref="Containeur4PhoneV" :class="{'animated-presentation1': props.isPresentationOpen, 'animated-presentation1-out': !props.isPresentationOpen}">
+        <h2>Objectifs</h2>
+        <p>
+          Mon objectif est de continuer à apprendre et à acquérir de l’expérience dans différents domaines de l’informatique. Je souhaite devenir <strong>polyvalent</strong>, aussi bien en <strong>développement web, full-stack</strong> qu’en <strong>programmation de jeux vidéo</strong>, qui sont les sujets qui m’intéressent le plus.
+
+          J’ai également une première expérience en <strong>cybersécurité</strong>, grâce à mes trois années de Bac Pro SN RISC, à ma participation à des <strong>CTF</strong> et à mes recherches personnelles. Curieux et motivé, j’aime relever de nouveaux défis et je souhaite évoluer vers un métier passionnant dans le développement informatique.
+        </p>
+      </div>
+    </div>
+    <div class="PhoneversionAnnexes" ref="PhoneAnnexes">
+      <div class="FichiersD" :class="{ 'containeur1--animated': props.isAnnexeOpen, 'containeur1--animated-out': !props.isAnnexeOpen}">
+        <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">CV</a>
+      </div>
+      <div class="FichiersD" :class="{ 'containeur2--animated': props.isAnnexeOpen, 'containeur2--animated-out': !props.isAnnexeOpen}">
+        <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Portfolio</a>
+      </div>
+    </div>
+    <section class="PhoneV" ref="PhoneV">
+      <div class="range">
+        <div class="RangButton" :class="{ 'containeur1--animated': !props.isContactOpen, 'containeur1--animated-out': props.isContactOpen || props.animationout || props.isPresentationOpen || props.isAnnexeOpen}">
+          <button @click="onClickAnnexe" >
+            <div class="ButtonContact">
+              <Arrow />
+              <span>Annexes</span>
+            </div>
+          </button>
+          <button @click="onClickContact" >
+            <div class="ButtonContact" >
+              <Arrow />
+              <span>Contact</span>
+            </div>
+          </button>
+        </div>
+        <div class="RangButton" :class="{ 'containeur2--animated': !props.isContactOpen, 'containeur2--animated-out': props.isContactOpen || props.animationout || props.isPresentationOpen || props.isAnnexeOpen}">
+          <button
+            @click="goToPresentation">
+            <div class="ButtonContact">
+              <span>Presentation</span>
+              <Arrow />
+            </div>
+          </button>
+          <button
+          @click="goToProject"
+          >
+            <div class="ButtonContact">
+              <span>Projet</span>
+              <Arrow />
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <style>
+  .range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .RangButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .presentation {
     display: none;
   }
@@ -202,5 +398,64 @@ watch(
   main div:nth-child(5),
   main div:nth-child(6) {
     margin-top: 2%;
+  }
+
+  .PhoneVersionAffichage {
+    display: none;
+  }
+
+  .PhoneversionAnnexes {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    gap: 30px;
+    margin-top: 30%;
+    .FichiersD {
+      width: 100%;
+      display: flex;
+      background-color: var(--AccentCouleur);
+      box-shadow: none;
+      border: none;
+      padding: 20px 6px;
+      border-radius: 35px;
+      margin: 0px;
+      a {
+        font-size: 25px;
+        text-align: center;
+        width: 100%;
+        color: var(--TextCouleur);
+      }
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    main div:nth-child(7),
+    main div:nth-child(6),
+    main div:nth-child(5) {
+      display: none;
+    }
+
+    .PhoneVersionAffichage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .containeur {
+      height: auto;
+    }
+    main div:nth-child(4) {
+      margin-top: 0px;
+    }
+    .PhoneV {
+      height: 50%;
+      margin-top: 30%;
+    }
   }
 </style>

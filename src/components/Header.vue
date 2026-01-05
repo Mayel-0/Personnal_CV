@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import { useRoute,useRouter,  RouterLink } from 'vue-router'
 import Arrow from '../components/Arrow.vue'
 
-const emit = defineEmits(['toggle-contact', 'toggle-acceuil'])
+const emit = defineEmits(['toggle-contact', 'toggle-acceuil', 'toggle-presentation', 'toggle-annexe'])
 
 const router = useRouter()
 
@@ -24,6 +24,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isAnnexeOpen: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+
+const accentColor = ref('#09BCF5')
+
+watch(accentColor, (newColor) => {
+  document.documentElement.style.setProperty('--AccentCouleur', newColor)
 })
 
 const buttonLabel = ref('Contacts')
@@ -47,10 +58,25 @@ watch(
     buttonLabel.value = newVal ? 'Accueil' : 'Contacts'
   }
 )
+
+function goToPresentation() {
+  emit('toggle-presentation')
+}
+
+function onClickAnnexe() {
+  emit('toggle-annexe')
+}
 </script>
 
 <template>
   <header>
+    <div class="color">
+      <input
+        type="color"
+        id="accentPicker"
+        v-model="accentColor"
+      />
+    </div>
     <div class="DownloadLinks">
       <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">CV</a>
       <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Portfolio</a>
@@ -70,8 +96,41 @@ watch(
         <Arrow />
       </div>
     </button>
+    <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isContactOpen">
+      <button @click="onClickContact">
+        <div class="ButtonContact" >
+          <span>Accueil</span>
+          <Arrow />
+        </div>
+      </button>
+    </div>
+    <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isPresentationOpen">
+      <button @click="goToPresentation">
+        <div class="ButtonContact" >
+          <span>Accueil</span>
+          <Arrow />
+        </div>
+      </button>
+    </div>
+    <div class="ButtonContactPhone" v-if="route.name === 'Projet'">
+      <button @click="GoToAcceuil">
+        <div class="ButtonContact" >
+          <span>Accueil</span>
+          <Arrow />
+        </div>
+      </button>
+    </div>
+    <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isAnnexeOpen">
+      <button @click="onClickAnnexe">
+        <div class="ButtonContact" >
+          <span>Accueil</span>
+          <Arrow />
+        </div>
+      </button>
+    </div>
   </header>
 </template>
 <style>
-
 </style>
+
+

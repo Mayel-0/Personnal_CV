@@ -19,6 +19,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isAnnexeOpen: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 // ✅ un seul defineEmits avec tous les events
@@ -69,3 +73,6 @@ watch(
     </button>
   </footer>
 </template>
+
+<style>
+</style>

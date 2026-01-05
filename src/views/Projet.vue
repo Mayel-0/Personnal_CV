@@ -25,6 +25,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isAnnexeOpen: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 
@@ -316,5 +320,13 @@ onMounted(() => {
 
   h1 {
     color: var(--AccentCouleur);
+  }
+  @media (max-width: 800px) {
+    .PartOne {
+      flex-direction: column;
+    }
+    section {
+      margin-top: 0px;
+    }
   }
 </style>
