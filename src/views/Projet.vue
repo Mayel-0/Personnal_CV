@@ -329,4 +329,13 @@ onMounted(() => {
       margin-top: 0px;
     }
   }
+
+  @media (max-width: 350px) {
+    html,
+    body {
+      height: 100%;
+      overflow-y: auto;   /* pas de scroll vertical */
+      overflow-x: auto;     /* scroll horizontal si nécessaire */
+    }
+  }
 </style>

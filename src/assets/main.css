@@ -439,6 +439,17 @@ main section {
     display: flex;
   }
 
+  main {
+    padding: 0rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .presentation {
+    padding: 3%;
+    box-shadow: none;
+    border: 1px solid var(--AccentCouleur);
+  }
 
   main .containeur,
   header .DownloadLinks a{
@@ -502,7 +513,7 @@ main section {
   }
   .range {
     height: 50%;
-    gap: 30px;
+    gap: 5%;
   }
   .Links .Link{
     width: 100%;
@@ -520,6 +531,7 @@ main section {
 
   .RangButton {
     gap: 30px;
+    width: 100%;
     button {
       width: 100%;
       background-color: var(--AccentCouleur);
@@ -527,7 +539,6 @@ main section {
       box-shadow: none;
       border: none;
       padding: 12px 18px 12px 18px;
-      font-size: 20px;
       border-radius: 25px;
       margin: 0px;
       display: flex;
@@ -544,4 +555,23 @@ main section {
       }
     }
   }
+  main {
+    position: relative;
+    min-height: 100vh;
+  }
+  button .ButtonContact svg {
+    display: none;
+  }
+  .range {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+}
+@media (max-width: 350px) {
+  .color {
+    display: none;
+  }
+
 }
