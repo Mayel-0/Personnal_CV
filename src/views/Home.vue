@@ -6,29 +6,19 @@ import Arrow from '../components/Arrow.vue'
 const emit = defineEmits(['toggle-contact', 'toggle-acceuil', 'toggle-project', 'toggle-presentation', 'toggle-annexe'])
 
 const isMobile = ref(false)
-const isLittelMobile = ref(false)
 
 const updateIsMobile = () => {
   // équivalent d'une media query (max-width: 768px)
   isMobile.value = window.matchMedia('(max-width: 800px)').matches
 }
 
-const updateIsLittelMobile = () => {
-  // équivalent d'une media query (max-width: 768px)
-  isMobile.value = window.matchMedia('(max-width: 350px)').matches
-}
-
 onMounted(() => {
   updateIsMobile()
   window.addEventListener('resize', updateIsMobile)
-
-  updateIsLittelMobile
-  window.addEventListener('resize', updateIsLittelMobile)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateIsMobile)
-  window.addEventListener('resize', updateIsLittelMobile)
 })
 
 const route = useRoute()
@@ -139,20 +129,6 @@ watch(
           Containeur3PhoneV.value.style.display = 'flex'
           Containeur4PhoneV.value.style.display = 'flex'
         }
-        if (isLittelMobile.value) {
-          PhoneV.value.style.display = 'none'
-          imgRef.value.style.opacity = '0'
-          imgRef.value.style.left = '50%'
-          containeur1Presentation.value.style.display = 'none'
-          containeur2Presentation.value.style.display = 'none'
-          containeur3Presentation.value.style.display = 'none'
-          Containeur1PhoneV.value.style.display = 'flex'
-          Containeur2PhoneV.value.style.display = 'flex'
-          Containeur3PhoneV.value.style.display = 'flex'
-          Containeur4PhoneV.value.style.display = 'flex'
-          document.body.style.overflowY = 'auto'
-          document.body.style.overflowX = 'auto'
-        }
       } else {
         Containeur1.value.style.display = 'flex'
         Containeur2.value.style.display = 'flex'
@@ -170,18 +146,6 @@ watch(
           Containeur2PhoneV.value.style.display = 'none'
           Containeur3PhoneV.value.style.display = 'none'
           Containeur4PhoneV.value.style.display = 'none'
-        }
-        if (isLittelMobile.value) {
-          Containeur1.value.style.display = 'none'
-          Containeur2.value.style.display = 'none'
-          PhoneV.value.style.display = 'flex'
-          imgRef.value.style.opacity = '1'
-          Containeur1PhoneV.value.style.display = 'none'
-          Containeur2PhoneV.value.style.display = 'none'
-          Containeur3PhoneV.value.style.display = 'none'
-          Containeur4PhoneV.value.style.display = 'none'
-          document.body.style.overflowY = 'hidden'
-          document.body.style.overflowX = 'hidden'
         }
       }
     }, delay)

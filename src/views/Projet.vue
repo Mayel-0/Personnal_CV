@@ -305,6 +305,7 @@ onMounted(() => {
   h1 {
     color: var(--AccentCouleur);
   }
+  
   @media (max-width: 800px) {
     .PartOne {
       flex-direction: column;
