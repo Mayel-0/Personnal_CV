@@ -319,6 +319,14 @@ function onClickAnnexe() {
       <div class="FichiersD" :class="{ 'containeur2--animated': props.isAnnexeOpen, 'containeur2--animated-out': !props.isAnnexeOpen}">
         <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Portfolio</a>
       </div>
+      <div class="color">
+        <input
+          type="color"
+          id="accentPicker"
+          value="#09BCF5"
+          ref="accentPicker"
+        >
+      </div>
     </div>
     <section class="PhoneV" ref="PhoneV">
       <div class="range">

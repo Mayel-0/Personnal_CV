@@ -305,13 +305,16 @@ onMounted(() => {
   h1 {
     color: var(--AccentCouleur);
   }
-  
+
   @media (max-width: 800px) {
     .PartOne {
       flex-direction: column;
     }
     section {
       margin-top: 0px;
+    }
+    .containeur .PartTree h2 {
+      text-align: center;
     }
   }
 </style>

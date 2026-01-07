@@ -30,13 +30,6 @@ const props = defineProps({
   },
 })
 
-
-const accentColor = ref('#09BCF5')
-
-watch(accentColor, (newColor) => {
-  document.documentElement.style.setProperty('--AccentCouleur', newColor)
-})
-
 const buttonLabel = ref('Contacts')
 const route = useRoute()
 
@@ -70,13 +63,6 @@ function onClickAnnexe() {
 
 <template>
   <header>
-    <div class="color">
-      <input
-        type="color"
-        id="accentPicker"
-        v-model="accentColor"
-      />
-    </div>
     <div class="DownloadLinks">
       <a href="/fichiers/CV_Mael_LLADO_V3.pdf" download class="btn">CV</a>
       <a href="/fichiers/PortfolioMaelLLADO.pdf" download class="btn">Portfolio</a>

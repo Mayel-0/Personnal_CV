@@ -572,9 +572,14 @@ main section {
     align-items: center;
     gap: 30px;
   }
-}
-@media (max-width: 350px) {
+  .main .PartTree {
+    flex-direction: column;
+  }
+  .frameworklist {
+    flex-direction: column;
+  }
   .color {
-    display: none;
+    position: absolute;
+    bottom: 70%;
   }
 }
