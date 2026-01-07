@@ -439,6 +439,10 @@ main section {
     display: flex;
   }
 
+  header {
+    position: relative;
+  }
+
   main {
     padding: 0rem;
     justify-content: center;
@@ -516,7 +520,7 @@ main section {
     gap: 5%;
   }
   .Links .Link{
-    width: 100%;
+    width: 80%;
     background-color: transparent;
     color: var(--AccentCouleur);
     svg {

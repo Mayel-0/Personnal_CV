@@ -504,13 +504,4 @@ function onClickAnnexe() {
     }
   }
 
-  @media (max-width: 350px) {
-    html,
-    body {
-      height: 100%;
-      overflow-y: hidden;   /* pas de scroll vertical */
-      overflow-x: hidden;     /* scroll horizontal si nécessaire */
-    }
-
-  }
 </style>

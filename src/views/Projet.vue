@@ -32,24 +32,8 @@ const props = defineProps({
 })
 
 
-
 onMounted(() => {
   Animation.value = true
-
-  console.log(props.projetout)
-  gsap.from(Projet1.value, {
-    x: -100,              // slide depuis la gauche
-    opacity: 0,           // part transparent
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: Projet1.value,
-      start: 'top 70%',
-      end: 'bottom 60%',          // important pour avoir une zone d’activation
-      scrub: true,
-      //markers: true,
-    },
-  })
   gsap.from(Projet2.value, {
     x: -100,              // slide depuis la gauche
     opacity: 0,           // part transparent
@@ -327,15 +311,6 @@ onMounted(() => {
     }
     section {
       margin-top: 0px;
-    }
-  }
-
-  @media (max-width: 350px) {
-    html,
-    body {
-      height: 100%;
-      overflow-y: auto;   /* pas de scroll vertical */
-      overflow-x: auto;     /* scroll horizontal si nécessaire */
     }
   }
 </style>
