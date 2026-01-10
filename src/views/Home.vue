@@ -43,7 +43,7 @@ const props = defineProps({
   },
 })
 
-const accentPicker = ref(null)
+const accentColor = ref('#09BCF5')
 const imgRef = ref(null)   // 🔴 ref pour l'image
 const Containeur1 = ref(null)
 const Containeur2 = ref(null)
@@ -58,11 +58,11 @@ const Containeur4PhoneV = ref(null)
 const PhoneV = ref(null)
 const PhoneAnnexes = ref(null)
 
+watch(accentColor, (val) => {
+  document.documentElement.style.setProperty('--AccentCouleur', val)
+})
+
 onMounted(() => {
-  accentPicker.value.addEventListener('input', () => {
-    document.documentElement.style
-      .setProperty('--AccentCouleur', accentPicker.value.value)
-  })
 
   if (props.isContactOpen === true) {
     console.log("j'ai vu que c'est ouvert (onMounted)")
@@ -210,9 +210,10 @@ function onClickAnnexe() {
       <label for="accentPicker">Couleur d'accent :</label>
       <input
         type="color"
-        id="accentPicker"
+        id="accentPickerDesktop"
         value="#09BCF5"
         ref="accentPicker"
+        v-model="accentColor"
       >
     </div>
     <div class="Contacts" ref="ContaineurContact" :class="{ 'Contact--animated': props.isContactOpen, 'Contact--animated-out': !props.isContactOpen}">
@@ -322,9 +323,10 @@ function onClickAnnexe() {
       <div class="color">
         <input
           type="color"
-          id="accentPicker"
+          id="accentPickerMobile"
           value="#09BCF5"
           ref="accentPicker"
+          v-model="accentColor"
         >
       </div>
     </div>
