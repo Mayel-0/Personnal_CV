@@ -20,6 +20,7 @@ const updateIsMobile = () => {
 
 onMounted(() => {
   updateIsMobile();
+  preloadProjetView();
   window.addEventListener("resize", updateIsMobile);
 });
 
@@ -29,6 +30,7 @@ onBeforeUnmount(() => {
 
 const route = useRoute();
 const router = useRouter();
+const preloadProjetView = () => import("../views/Projet.vue");
 
 const props = defineProps({
   isContactOpen: {
@@ -203,9 +205,9 @@ watch(
 async function goToProject() {
   emit("toggle-project");
 
-  await new Promise((r) => setTimeout(r, 800));
+  await Promise.all([preloadProjetView(), new Promise((r) => setTimeout(r, 800))]);
 
-  router.push({ name: "Projet" });
+  await router.push({ name: "Projet" });
 }
 
 function goToPresentation() {
