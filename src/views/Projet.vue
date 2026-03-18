@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -11,6 +11,9 @@ const Projet1 = ref(null);
 const Projet2 = ref(null);
 const Projet3 = ref(null);
 const Projet4 = ref(null);
+const Projet5 = ref(null);
+const Projet6 = ref(null);
+const mediaQueries = ref(null);
 
 const props = defineProps({
   isContactOpen: {
@@ -31,47 +34,65 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
+const projectRefs = [Projet2, Projet3, Projet4, Projet5, Projet6];
+
+function animateProjects({ x, scrub, end, toggleActions, once }) {
+  projectRefs.forEach((projectRef) => {
+    if (!projectRef.value) return;
+
+    gsap.from(projectRef.value, {
+      x,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: projectRef.value,
+        start: "top 78%",
+        end,
+        scrub,
+        toggleActions,
+        once,
+        invalidateOnRefresh: true,
+      },
+    });
+  });
+}
+
+onMounted(async () => {
   Animation.value = true;
-  gsap.from(Projet2.value, {
-    x: -100, // slide depuis la gauche
-    opacity: 0, // part transparent
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: Projet2.value,
-      start: "top 70%",
-      end: "bottom 60%", // important pour avoir une zone d’activation
-      scrub: true,
-      // markers: true,
-    },
+  await nextTick();
+
+  mediaQueries.value = gsap.matchMedia();
+
+  mediaQueries.value.add("(max-width: 800px)", () => {
+    animateProjects({
+      x: -40,
+      scrub: false,
+      end: "bottom 70%",
+      toggleActions: "play none none none",
+      once: true,
+    });
   });
-  gsap.from(Projet3.value, {
-    x: -100, // slide depuis la gauche
-    opacity: 0, // part transparent
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: Projet3.value,
-      start: "top 70%",
-      end: "bottom 60%", // important pour avoir une zone d’activation
+
+  mediaQueries.value.add("(min-width: 801px)", () => {
+    animateProjects({
+      x: -100,
       scrub: true,
-      //markers: true,
-    },
+      end: "bottom 60%",
+      toggleActions: "play none none reverse",
+      once: false,
+    });
   });
-  gsap.from(Projet4.value, {
-    x: -100, // slide depuis la gauche
-    opacity: 0, // part transparent
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: Projet4.value,
-      start: "top 70%",
-      end: "bottom 10%", // important pour avoir une zone d’activation
-      scrub: true,
-      //markers: true,
-    },
-  });
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 150);
+});
+
+onBeforeUnmount(() => {
+  if (mediaQueries.value) {
+    mediaQueries.value.revert();
+  }
 });
 </script>
 <template>
@@ -281,9 +302,108 @@ onMounted(() => {
           en développement web.
         </p>
         <span>Voici un extrait du README</span>
+
+        <p class="details__projet">
+          Ce site web recoie un changement de structure + designe pour passer syr le langague React
+          / js et Base de données
+        </p>
       </div>
       <div class="Public">Public</div>
       <a href="https://one-piece-dle-game.vercel.app/" target="_blank" rel="noopener noreferrer"
+        >Voir le projet sur GitHub</a
+      >
+    </div>
+    <div class="containeur" ref="Projet5" id="Projet5">
+      <div class="PartOne">
+        <div class="IMGContaineur">
+          <img src="../assets/cloudperso.png" />
+        </div>
+        <div class="TextTop">
+          <h2>Cloud Perso</h2>
+          <p>Voici un projet personnel full golang web avec communication Base de données</p>
+          <h2>GitHub</h2>
+          <p>
+            Ce projet a été réalisé personnellement, en dehors de mes projets d'école, pour le
+            plaisir de créer un logiciel cloud web, ce dernier et fonctionnel chez moi sur un nas
+            /rasberry pi pour une utilisation personnel et familiale.
+          </p>
+        </div>
+      </div>
+      <div class="PartTwo">
+        <p>
+          Ce cloud perso en coder enhtml css et avec un backend full golang et avec une connection
+          avec une base de données pour une gestion des utilisateur un A2F avec email gestion et
+          securiter des data avec backup et autre protection, c'est un logiciel web multi compte /
+          multi utilisateur avec gestion zip, upload et download de fichier et dossier, gestion de
+          la corbeille, gestion de la modification de fichier en ligne, gestion de la création de
+          fichier et dossier en ligne, gestion de la suppression de fichier et dossier en ligne,
+          gestion de la restauration de fichier et dossier en ligne et beaucoup d'autre
+          fonctionnaliter intéressante et de base dans un cloud pro. ce projet est reel et
+          fonctionnel chez moi sur un nas /rasberry pi pour une utilisation personnel et familiale.
+        </p>
+        <span>Voici un extrait du README</span>
+        <div class="PartTree">
+          <div class="FirtsPart">
+            <h2>Langue</h2>
+            <span>Golang</span>
+            <span>MYSQL</span>
+
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+          <div class="LastPart">
+            <h2>Framework</h2>
+            <div class="frameworklist">
+              <div class="cut">
+                <span>Net/Http</span>
+                <span>archive/tar . Zip</span>
+                <span>compress/gzip</span>
+                <span>crypto/rand</span>
+                <span>database/sql</span>
+              </div>
+              <div class="cut">
+                <span>io io/fs</span>
+                <span>os os/signal</span>
+                <span>path/filepath</span>
+                <span>gomail</span>
+                <span>crypto/bcrypt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Public">Public</div>
+      <a href="https://github.com/Mayel-0/Cloud_perso" target="_blank" rel="noopener noreferrer"
+        >Voir le projet sur GitHub</a
+      >
+    </div>
+    <div class="containeur" ref="Projet6" id="Projet6">
+      <div class="PartOne">
+        <div class="IMGContaineur"></div>
+        <div class="TextTop">
+          <h2>Tech Talk</h2>
+          <p>
+            un projet de site web proposant des podcasts crée par des étudiant pour des étudiant sur
+            des sujet divers mais généralement liés à la technologie plus particulierement a
+            l'impacte qu'a est qu'aura lia sur nos métiers
+          </p>
+          <h2>GitHub</h2>
+          <p>Ce projet est un projet d'école dans le codre des Ydays a Ynov campus</p>
+        </div>
+      </div>
+      <div class="PartTwo">
+        <p>...</p>
+        <span>Voici un extrait du README</span>
+        <p class="details__projet">
+          ce projet est en construction / en cours de developpement et de finalisation, il sera
+          bientôt disponible sur mon GitHub et sur ce site.
+        </p>
+      </div>
+      <div class="Public Private">Privé</div>
+      <a
+        href="https://github.com/Mayel-0/Tech_Talk-Remaster-JS"
+        target="_blank"
+        rel="noopener noreferrer"
         >Voir le projet sur GitHub</a
       >
     </div>
@@ -378,6 +498,10 @@ h1 {
 @media (max-width: 800px) {
   .PartOne {
     flex-direction: column;
+  }
+  .main p {
+    text-align: justify;
+    text-justify: inter-word;
   }
   section {
     margin-top: 0px;
