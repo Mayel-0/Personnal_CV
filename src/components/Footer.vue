@@ -60,8 +60,11 @@ watch(
       </div>
     </button>
 
-    <button @click="goToProject" v-if="!props.isContactOpen && route.name === 'home'">
-      <div class="ButtonContact" v-if="!props.isPresentationOpen">
+    <button
+      @click="goToProject"
+      v-if="!props.isContactOpen && route.name === 'home' && !props.isPresentationOpen"
+    >
+      <div class="ButtonContact">
         <span>Projet</span>
         <Arrow />
       </div>

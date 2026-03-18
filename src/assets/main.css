@@ -214,11 +214,13 @@ main div:nth-child(4) {
 .containeur2--animated-out {
   animation: SlideRightOut 0.9s ease 1;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 .containeur1--animated-out {
   animation: SlideLeftOut 0.9s ease 1;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 .Contact--animated .Link:nth-child(1),
@@ -272,6 +274,7 @@ main div:nth-child(4) {
 .img--animated-out {
   animation: imgOut 1s ease;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 .Animation-int {
@@ -281,6 +284,7 @@ main div:nth-child(4) {
 .Animation-out {
   animation: SlideLeftOut 1s ease 1;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 .animated-presentation1 {
@@ -294,11 +298,13 @@ main div:nth-child(4) {
 .animated-presentation1-out {
   animation: SlideLeftOut 1s ease 1;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 .animated-presentation2-out {
   animation: SlideRightOut 1s ease 1;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 
 @keyframes imgOut {

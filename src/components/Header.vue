@@ -1,11 +1,16 @@
 <script setup>
-import { ref, watch } from 'vue'
-import { useRoute,useRouter,  RouterLink } from 'vue-router'
-import Arrow from '../components/Arrow.vue'
+import { ref, watch } from "vue";
+import { useRoute, useRouter, RouterLink } from "vue-router";
+import Arrow from "../components/Arrow.vue";
 
-const emit = defineEmits(['toggle-contact', 'toggle-acceuil', 'toggle-presentation', 'toggle-annexe'])
+const emit = defineEmits([
+  "toggle-contact",
+  "toggle-acceuil",
+  "toggle-presentation",
+  "toggle-annexe",
+]);
 
-const router = useRouter()
+const router = useRouter();
 
 const props = defineProps({
   isContactOpen: {
@@ -28,36 +33,36 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
-const buttonLabel = ref('Contacts')
-const route = useRoute()
+const buttonLabel = ref("Contacts");
+const route = useRoute();
 
 function onClickContact() {
-  emit('toggle-contact')
+  emit("toggle-contact");
 }
 
 async function GoToAcceuil() {
-  emit('toggle-acceuil')                 // 1) dit à App.vue : "lance l'anim"
+  emit("toggle-acceuil"); // 1) dit à App.vue : "lance l'anim"
 
-  await new Promise(r => setTimeout(r, 800)) // 2) attend 1.5s
+  await new Promise((r) => setTimeout(r, 800)); // 2) attend 1.5s
 
-  router.push({ name: 'home' })
+  router.push({ name: "home" });
 }
 
 watch(
   () => props.isContactOpen,
   (newVal) => {
-    buttonLabel.value = newVal ? 'Accueil' : 'Contacts'
-  }
-)
+    buttonLabel.value = newVal ? "Accueil" : "Contacts";
+  },
+);
 
 function goToPresentation() {
-  emit('toggle-presentation')
+  emit("toggle-presentation");
 }
 
 function onClickAnnexe() {
-  emit('toggle-annexe')
+  emit("toggle-annexe");
 }
 </script>
 
@@ -70,8 +75,8 @@ function onClickAnnexe() {
 
     <h1>Mael LLADO</h1>
 
-    <button @click="onClickContact" v-if="route.name === 'home'">
-      <div class="ButtonContact" v-if="!props.isPresentationOpen && route.name === 'home'">
+    <button @click="onClickContact" v-if="route.name === 'home' && !props.isPresentationOpen">
+      <div class="ButtonContact">
         <span>{{ buttonLabel }}</span>
         <Arrow />
       </div>
@@ -84,7 +89,7 @@ function onClickAnnexe() {
     </button>
     <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isContactOpen">
       <button @click="onClickContact">
-        <div class="ButtonContact" >
+        <div class="ButtonContact">
           <span>Accueil</span>
           <Arrow />
         </div>
@@ -92,7 +97,7 @@ function onClickAnnexe() {
     </div>
     <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isPresentationOpen">
       <button @click="goToPresentation">
-        <div class="ButtonContact" >
+        <div class="ButtonContact">
           <span>Accueil</span>
           <Arrow />
         </div>
@@ -100,7 +105,7 @@ function onClickAnnexe() {
     </div>
     <div class="ButtonContactPhone" v-if="route.name === 'Projet'">
       <button @click="GoToAcceuil">
-        <div class="ButtonContact" >
+        <div class="ButtonContact">
           <span>Accueil</span>
           <Arrow />
         </div>
@@ -108,7 +113,7 @@ function onClickAnnexe() {
     </div>
     <div class="ButtonContactPhone" v-if="route.name === 'home' && props.isAnnexeOpen">
       <button @click="onClickAnnexe">
-        <div class="ButtonContact" >
+        <div class="ButtonContact">
           <span>Accueil</span>
           <Arrow />
         </div>
@@ -116,7 +121,4 @@ function onClickAnnexe() {
     </div>
   </header>
 </template>
-<style>
-</style>
-
-
+<style></style>
